@@ -36,4 +36,28 @@ const month = months[futureDate.getMonth()];
 const day = futureDate.getDate();
 const weekday = weekdays[futureDate.getDay()];
 
-giveaway.textContent = `giveaway ends on ${weekday} ${month} ${day}, ${year} at ${hours}:${minutes}am`
+giveaway.textContent = `giveaway ends on ${weekday} ${month} ${day}, ${year} at ${hours}:${minutes}am`;
+
+//future time in miliseconds
+const futureTime = futureDate.getTime();
+
+function getRemainingTime(){
+    const today = new Date().getTime();
+    const t = futureTime - today;
+    //1s = 1000ms
+    //1min = 60s
+    //1hr = 60min
+    //1d = 24hrs
+
+    //values in ms
+    const oneDay = 24*60*60*1000;
+    const oneHour = 60*60*1000;
+    const oneMin = 60*1000;
+    //calculate all values
+    let days = Math.floor(t / oneDay);
+    let hours = Math.floor((t % oneDay) / oneHour);
+    let minutes = Math.floor((t % oneHour) / oneMin);
+    let seconds = Math.floor((t % oneMin) / 1000);
+}
+
+getRemainingTime(futureTime)
