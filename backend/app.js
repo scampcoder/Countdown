@@ -74,4 +74,6 @@ function getRemainingTime(){
     })
 }
 
-getRemainingTime(futureTime);
+//countdown
+let countdown = setInterval(getRemainingTime, 1000);
+getRemainingTime();
